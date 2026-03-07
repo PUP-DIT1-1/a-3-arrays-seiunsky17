@@ -31,7 +31,7 @@ public class Arrays {
                     break;
                 }
                 case "2" ->{
-                    //gradesAverage();
+                    gradesAverage();
                     break;
                 }
                 case "3" ->{
@@ -70,6 +70,22 @@ public class Arrays {
             students[i][0], 
             students[i][1], 
             students[i][2]);
+        }
+    }
+    //Computes Average
+    static void gradesAverage(){
+        System.out.printf("\n%-25s %-10s %-10s %-10s%n", "Names", "Midterms" , "Finals", "General Average");
+        System.out.println("---------------------------------------------------------------");
+        for(int i=0; i < students.length; i++){
+            double midterm = Double.parseDouble(students[i][1]);
+            double finals = Double.parseDouble(students[i][2]);
+            double average= (midterm + finals) / 2.0;
+            
+            System.out.printf("%-25s %-10s %-10s %-10.2f%n", 
+            students[i][0], 
+            students[i][1], 
+            students[i][2], 
+            average);
         }
     }
 }
