@@ -2,7 +2,7 @@
 package com.example.Arrays;
 import java.util.Scanner;
 public class Arrays {
-    
+    static double average=0;
     static Scanner scan=new Scanner(System.in);
     static String [][]students={
         {"Julian Marie Amores", "1.25", "1.25"}, 
@@ -39,7 +39,7 @@ public class Arrays {
                     break;
                 }
                 case "4" ->{
-                    //searchStudent();
+                    searchStudent();
                     break;
                 }
                 case "5" ->{
@@ -79,7 +79,7 @@ public class Arrays {
         for(int i=0; i < students.length; i++){
             double midterm = Double.parseDouble(students[i][1]);
             double finals = Double.parseDouble(students[i][2]);
-            double average= (midterm + finals) / 2.0;
+            average= (midterm + finals) / 2.0;
             
             System.out.printf("%-25s %-10s %-10s %-10.2f%n", 
             students[i][0], 
@@ -103,6 +103,28 @@ public class Arrays {
                 }
                      
             }
+        }
+    }
+    //Search for Student
+    static void searchStudent(){
+        boolean isFound=false;
+        System.out.print("\nEnter name: ");
+        String name=scan.nextLine().trim();
+        
+        for (String[] student : students) {
+            if (student[0].equalsIgnoreCase(name)) {
+                double midterm = Double.parseDouble(student[1]);
+                double finals = Double.parseDouble(student[2]);
+                average= (midterm + finals) / 2.0;
+                System.out.printf("\n%-25s %-10s %-10s %-10s%n", "Names", "Midterms" , "Finals", "General Average");
+                System.out.println("---------------------------------------------------------------");
+                System.out.printf("%-25s %-10s %-10s %-10.2f%n", student[0], student[1], student[2], average);
+                isFound=true;
+                break;
+            }
+        }
+        if(!isFound){
+            System.out.println(name + " not found");
         }
     }
 }
