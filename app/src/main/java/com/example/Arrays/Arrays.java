@@ -93,8 +93,8 @@ public class Arrays {
         System.out.printf("\n%-25s %-10s %-10s %-10s%n", "Names", "Midterms" , "Finals", "General Average");
         for(int i=0; i < students.length - 1; i++){
             for(int j=0; j <students.length - i - 1; j++){
-                double currentStudent = Double.parseDouble(students[j][1]) + Double.parseDouble(students[j][2]) / 2.0;
-                double nextStudent = Double.parseDouble(students[j + 1][1]) + Double.parseDouble(students[j + 1][2]) / 2.0;
+                double currentStudent = (Double.parseDouble(students[j][1]) + Double.parseDouble(students[j][2])) / 2.0;
+                double nextStudent = (Double.parseDouble(students[j + 1][1]) + Double.parseDouble(students[j + 1][2])) / 2.0;
                 
                 if(currentStudent > nextStudent){
                     String []temp=students[j];
